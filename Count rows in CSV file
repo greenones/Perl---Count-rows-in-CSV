@@ -1,0 +1,18 @@
+#!/use/bin/perl
+Use strict;
+Use warnings;
+ 
+My $filename = “/path/to/file.csv”;
+My $line;
+My $lines = 0;
+My @columns;
+ 
+Open(my $fh, ‘<’, $filename) or die “Cannot open $filename: $!”;
+ 
+$line = <$fh>;
+@columns = split(‘,’, $line);
+$lines++ while <$fh>;
+Close $fh;
+ 
+Print “lines\n”;
+#print scalar $columns . “ columns\n”;
